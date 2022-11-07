@@ -1,34 +1,41 @@
-﻿using System;
+﻿//Prime Number Program
+using System;
 
 namespace LogicalProgram
 {
     internal class Program
     {
-
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            int number, sum = 0, n;
-            Console.Write("enter the Number");
-            number = int.Parse(Console.ReadLine()); //Taking ip from users
-            n = number;
-            for (int i = 1; i < number; i++)
+            Console.WriteLine("Enter a number");
+            int number = Convert.ToInt32(Console.ReadLine());
+            int result = Check_Prime(number);
+            if (result == 0)
             {
-                if (number % i == 0)
-                {
-                    sum = sum + i;
-                }
-            }
-            if (sum == n)
-            {
-                Console.WriteLine("\n Entered number is a perfect number");
-                Console.ReadLine();
+                Console.WriteLine("{0} is not a prime number", number);
             }
             else
             {
-                Console.WriteLine("\n Entered number is not a perfect number");
-                Console.ReadLine();
+                Console.WriteLine("{0} is  a prime number", number);
             }
+            // Console.Read();
+        }
+
+        private static int Check_Prime(int number)
+        {
+            int i;
+            for (i = 2; i <= number - 1; i++)
+            {
+                if (number % i == 0)
+                {
+                    return 0;
+                }
+            }
+            if (i == number)
+            {
+                return 1;
+            }
+            return 0;
         }
     }
 }
-    
