@@ -1,41 +1,25 @@
-﻿//Prime Number Program
+﻿// Reverse Number Program
 using System;
 
 namespace LogicalProgram
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Enter a number");
-            int number = Convert.ToInt32(Console.ReadLine());
-            int result = Check_Prime(number);
-            if (result == 0)
-            {
-                Console.WriteLine("{0} is not a prime number", number);
-            }
-            else
-            {
-                Console.WriteLine("{0} is  a prime number", number);
-            }
-            // Console.Read();
-        }
+            int n = Convert.ToInt32(Console.ReadLine());
 
-        private static int Check_Prime(int number)
-        {
-            int i;
-            for (i = 2; i <= number - 1; i++)
+            int rev = 0, rem;
+            while (n != 0)
             {
-                if (number % i == 0)
-                {
-                    return 0;
-                }
+                rem = n % 10;
+                rev = rev * 10 + rem;
+                n = n / 10;
             }
-            if (i == number)
-            {
-                return 1;
-            }
-            return 0;
+            Console.WriteLine("reverse no is :" + rev);
+
         }
     }
 }
+
